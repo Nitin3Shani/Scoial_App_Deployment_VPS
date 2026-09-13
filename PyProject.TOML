@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fast-apis"
+version = "0.1.0"
+description = "FastAPI project"
+requires-python = ">=3.9"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "moto[s3]"
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = [
+    "ignore:.*WindowsSelectorEventLoopPolicy.*:DeprecationWarning",
+    "ignore:.*set_event_loop_policy.*:DeprecationWarning",
+]
+
+[tool.setuptools]
+packages = ["routers", 'alembic' , 'media', 'pics_src', 'static', 'templates']

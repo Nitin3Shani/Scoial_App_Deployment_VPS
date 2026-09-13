@@ -1,0 +1,57 @@
+# --- Environment / secrets ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- Testing / caching ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+.coverage.*
+.tox/
+
+
+# --- Build / packaging ---
+build/
+dist/
+*.egg-info/
+*.egg
+fast_apis.egg-info/
+
+# --- Alembic (keep migration scripts, ignore local sqlite/db files if any) ---
+*.sqlite3
+*.db
+
+# --- Media / uploads (usually user-generated, not source code) ---
+media/
+
+# --- Logs ---
+*.log
+logs/
+
+# --- IDE / editor ---
+.vscode/
+.idea/
+*.swp
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db
+
+# --- Node (in case of frontend tooling) ---
+node_modules/
