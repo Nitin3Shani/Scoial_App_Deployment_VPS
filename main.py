@@ -31,16 +31,16 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 app.include_router(users.router, prefix= '/api/users', tags= ['users'])
 app.include_router(posts.router, prefix= '/api/posts', tags= ['posts'])
 
-@app.get("/health")
-async def health_check(db: Annotated[AsyncSession, Depends(get_db)]):
+@app.get('/health')
+async def health_check(db: Annotated[AsyncSession,Depends(get_db)]):
     try:
         await db.execute(text("SELECT 1"))
     except Exception as exc:
         raise HTTPException(
-            status_code= status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail= 'Database unavailable'
-        ) from exc 
-    return {"status": "healthy"}
+            status_code = status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail = "Database Unavailable"
+        ) from exc
+    return {'status' : "Healthy"}
 
 
 @app.get('/', include_in_schema=False, name='home')
